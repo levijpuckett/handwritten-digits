@@ -9,8 +9,8 @@ Created on Thu Mar  8 17:32:53 2018
 import numpy as np
 import os.path
 
-labelsPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/imagestrain-labels.idx1-ubyte'
-imagesPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/train-images.idx3-ubyte'
+labelsPath = 'imagestrain-labels.idx1-ubyte'
+imagesPath = 'train-images.idx3-ubyte'
 
 def from_bytes(bytez):
     return int.from_bytes(bytez, byteorder='big', signed=False)
@@ -49,16 +49,16 @@ def load_images():
     return images, labels
 
 def make_pickle():
-    labelsPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/train-labels.idx1-ubyte'
-    imagesPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/train-images.idx3-ubyte'
+    labelsPath = 'images/train-labels.idx1-ubyte'
+    imagesPath = 'images/train-images.idx3-ubyte'
 
     train_images, train_labels = load_images()
 
     np.save('training_images', train_images)
     np.save('training_labels', train_labels)
     
-    labelsPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/t10k-labels.idx3-ubyte'
-    imagesPath = '/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/t10k-images.idx3-ubyte'
+    labelsPath = 'images/t10k-labels.idx3-ubyte'
+    imagesPath = 'images/t10k-images.idx3-ubyte'
     
     test_images, test_labels = load_images()
     
@@ -68,17 +68,17 @@ def make_pickle():
     return train_images, train_labels, test_images, test_labels
 
 def load_pickle():
-    train_images = np.load('/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/training_images.npy')
-    train_labels = np.load('/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/training_labels.npy')
+    train_images = np.load('images/training_images.npy')
+    train_labels = np.load('images/training_labels.npy')
     
-    test_images = np.load('/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/test_images.npy')
-    test_labels = np.load('/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/test_labels.npy')
+    test_images = np.load('images/test_images.npy')
+    test_labels = np.load('images/test_labels.npy')
     
     
     return train_images, train_labels, test_images, test_labels
     
     
-if not os.path.isfile('/Users/levipuckett/AnacondaProjects/NaughtNumpyNets/images/training_images.npy'):
+if not os.path.isfile('images/training_images.npy'):
     print ('creating pickle.')
     train_images, train_labels, test_images, test_labels = make_pickle()
     
