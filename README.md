@@ -9,9 +9,12 @@ The MNIST dataset is a well known machine learning dataset. Over 60,000 images o
 
 ![Alt text](MNISTDigit.png?raw=true "Title")
 
-## Neural Network
+## Neural Network and Training
 The neural network structure consists of nodes, each with many inputs and outputs. Each input has a weight, and each node is associated with a bias. The network is an object realized as 2 arrays: a 2D array of weights, and a 1D array of biases. A graphical interpretation of the NN is used to get a visual sense of what is happening when it is being trained. As the weights and biases are updated, the colour of the nodes and branches vary accordingly.
 
 ![Alt text](NN.png?raw=true "Title")
 
 The NN uses a simple sigmoid function for its logistic function. It is trained using backpropagation and gradient descent over multiple epochs. In each epoch, the entire training dataset is shown to the NN, and then the training set is shuffled and the next epoch begins. 10,000 images are withheld for a measure of generalization error.
+
+## MNIST Loader
+MNIST_loader.py imports and then pickles the image files. The pickles are included in this repo, so the loader should not need to run.
